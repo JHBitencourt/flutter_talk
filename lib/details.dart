@@ -22,12 +22,20 @@ class DetailsPeople extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center ,
         children: <Widget>[
           Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              CircleAvatar(
-                backgroundColor: Colors.blueAccent,
-                backgroundImage: NetworkImage("${_person.urlImage}"),
+              Padding(
+                padding: EdgeInsets.only(top: 20.0, bottom: 30.0),
+                child: CircleAvatar(
+                  radius: 50.0,
+                  backgroundColor: Colors.blueAccent,
+                  backgroundImage: NetworkImage("${_person.urlImage}"),
+                ),
               ),
-              Text("${_person.name}")
+              Padding(
+                  padding: EdgeInsets.only(bottom: 20.0),
+                  child: Text("${_person.name}")
+              )
             ],
           )
         ],
