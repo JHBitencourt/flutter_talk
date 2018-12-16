@@ -38,9 +38,9 @@ class _PeopleWidgetState extends State<PeopleWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Text(
-            _people == null ? "LOADING" : "${_people}"
-        )
+        child: _people == null
+            ? CircularProgressIndicator()
+            : Text("${_people}")
     );
   }
 

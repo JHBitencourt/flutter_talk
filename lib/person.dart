@@ -19,4 +19,9 @@ class Person {
         'urlImagem': urlImage
       };
 
+  @override
+  String toString() {
+    return 'Pessoa{idPessoa: $idPerson, nome: $name}';
+  }
+
 }
