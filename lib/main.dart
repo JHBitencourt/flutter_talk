@@ -38,17 +38,18 @@ class _PeopleWidgetState extends State<PeopleWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return _people == null
-        ? CircularProgressIndicator()
-        : ListView.builder(
-        itemCount: _people.length,
-        itemBuilder: (BuildContext context, int index) {
+    return Center(
+      child: _people == null
+          ? CircularProgressIndicator()
+          : ListView.builder(
+          itemCount: _people.length,
+          itemBuilder: (BuildContext context, int index) {
             Person person = _people[index];
 
             return GestureDetector(
               onTap: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (BuildContext context) => new DetailsPeople(person))
+                    MaterialPageRoute(builder: (BuildContext context) => new DetailsPeople(person))
                 );
               },
               child: ListTile (
@@ -60,7 +61,8 @@ class _PeopleWidgetState extends State<PeopleWidget> {
               ),
             );
           }
-        );
+      ),
+    );
   }
 
   void getPessoas() async {

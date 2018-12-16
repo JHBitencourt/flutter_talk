@@ -10,7 +10,21 @@ class DetailsPeople extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Details"),),
+      appBar: AppBar(title: Text("Details")),
+      body: buildDetails(),
     );
   }
+
+  Widget buildDetails() {
+    return Column(
+      children: <Widget>[
+        CircleAvatar(
+          backgroundColor: Colors.blueAccent,
+          backgroundImage: NetworkImage("${_person.urlImage}"),
+        ),
+        Text("${_person.name}")
+      ],
+    );
+  }
+
 }
