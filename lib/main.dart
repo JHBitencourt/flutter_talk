@@ -46,6 +46,10 @@ class _PeopleWidgetState extends State<PeopleWidget> {
 
             return ListTile (
               title: Text("${person.name}"),
+              leading: CircleAvatar(
+                backgroundColor: Colors.blueAccent,
+                backgroundImage: NetworkImage("${person.urlImage}"),
+              ),
             );
           }
         );
