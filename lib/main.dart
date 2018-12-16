@@ -42,7 +42,11 @@ class _PeopleWidgetState extends State<PeopleWidget> {
         : ListView.builder(
         itemCount: _people.length,
         itemBuilder: (BuildContext context, int index) {
-            return Text("${_people[index].name}");
+            Person person = _people[index];
+
+            return ListTile (
+              title: Text("${person.name}"),
+            );
           }
         );
   }
