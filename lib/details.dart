@@ -16,13 +16,18 @@ class DetailsPeople extends StatelessWidget {
   }
 
   Widget buildDetails() {
-    return Column(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center ,
       children: <Widget>[
-        CircleAvatar(
-          backgroundColor: Colors.blueAccent,
-          backgroundImage: NetworkImage("${_person.urlImage}"),
-        ),
-        Text("${_person.name}")
+        Column(
+          children: <Widget>[
+            CircleAvatar(
+              backgroundColor: Colors.blueAccent,
+              backgroundImage: NetworkImage("${_person.urlImage}"),
+            ),
+            Text("${_person.name}")
+          ],
+        )
       ],
     );
   }
