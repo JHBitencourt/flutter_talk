@@ -6,10 +6,9 @@ class Person {
   String urlImage;
 
   //Deserialização json -> object
-  Person.fromJson(Map<String, dynamic> json) {
-    idPerson = json['idPessoa'];
-    name = json['nome'];
-    urlImage = json['urlImagem'];
-  }
+  Person.fromJson(Map<String, dynamic> json)
+      : idPerson = json['idPessoa'],
+        name = json['nome'],
+        urlImage = json['urlImagem'];
 
 }
