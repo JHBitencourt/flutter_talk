@@ -7,7 +7,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Talk',
-      home: Center(child:Text("Hello Flutter!")),
+      home: Scaffold(
+        appBar: AppBar(title: Text('Flutter Senai 2018')),
+        body: Center(
+            child: Text("Hello Flutter!",
+              style: TextStyle(
+                  fontSize: 30.0,
+                  color: Colors.blueAccent
+              ),
+            )
+        ),
+      ),
     );
   }
 }
