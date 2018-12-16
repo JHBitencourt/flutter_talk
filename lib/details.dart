@@ -11,7 +11,9 @@ class DetailsPeople extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Details")),
-      body: buildDetails(),
+      body: Perspective(
+        child: buildDetails(),
+      ),
     );
   }
 
@@ -47,6 +49,39 @@ class DetailsPeople extends StatelessWidget {
           )
         ],
       )
+    );
+  }
+
+}
+
+// Based on https://medium.com/flutter-io/perspective-on-flutter-6f832f4d912e
+class Perspective extends StatefulWidget {
+
+  Widget child;
+
+  Perspective({this.child});
+
+  @override
+  _PerspectiveState createState() => _PerspectiveState();
+}
+
+class _PerspectiveState extends State<Perspective> {
+
+  Offset _offset = Offset.zero;
+
+  @override
+  Widget build(BuildContext context) {
+    return Transform(  // Transform widget
+        transform: Matrix4.identity()
+          ..setEntry(3, 2, 0.001)
+          ..rotateX(0.01 * _offset.dy)
+          ..rotateY(-0.01 * _offset.dx),
+        alignment: FractionalOffset.center,
+        child: GestureDetector(
+          onPanUpdate: (details) => setState(() => _offset += details.delta),
+          onDoubleTap: () => setState(() => _offset = Offset.zero),
+          child: widget.child,
+        )
     );
   }
 
