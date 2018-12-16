@@ -11,4 +11,13 @@ class Person {
         name = json['nome'],
         urlImage = json['urlImagem'];
 
+  //Serialização object -> json
+  Map<String, dynamic> toJson() {
+    return {
+      'idPessoa':idPerson,
+      'nome':name,
+      'urlImagem':urlImage
+    };
+  }
+
 }
