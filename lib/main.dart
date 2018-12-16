@@ -37,11 +37,14 @@ class _PeopleWidgetState extends State<PeopleWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: _people == null
-            ? CircularProgressIndicator()
-            : Text("${_people}")
-    );
+    return _people == null
+        ? CircularProgressIndicator()
+        : ListView.builder(
+        itemCount: _people.length,
+        itemBuilder: (BuildContext context, int index) {
+            return Text("${_people[index].name}");
+          }
+        );
   }
 
   void getPessoas() async {
