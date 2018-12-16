@@ -34,7 +34,14 @@ class DetailsPeople extends StatelessWidget {
               ),
               Padding(
                   padding: EdgeInsets.only(bottom: 20.0),
-                  child: Text("${_person.name}")
+                  child: Text(
+                    "${_person.name}",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                    ),
+                  )
               )
             ],
           )
