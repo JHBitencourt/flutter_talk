@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_talk/details.dart';
 import 'package:flutter_talk/people_api.dart';
 import 'package:flutter_talk/person.dart';
 
@@ -44,11 +45,18 @@ class _PeopleWidgetState extends State<PeopleWidget> {
         itemBuilder: (BuildContext context, int index) {
             Person person = _people[index];
 
-            return ListTile (
-              title: Text("${person.name}"),
-              leading: CircleAvatar(
-                backgroundColor: Colors.blueAccent,
-                backgroundImage: NetworkImage("${person.urlImage}"),
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (BuildContext context) => new DetailsPeople(person))
+                );
+              },
+              child: ListTile (
+                title: Text("${person.name}"),
+                leading: CircleAvatar(
+                  backgroundColor: Colors.blueAccent,
+                  backgroundImage: NetworkImage("${person.urlImage}"),
+                ),
               ),
             );
           }
