@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_talk/people_api.dart';
+import 'package:flutter_talk/person.dart';
 
 void main() => runApp(new MyApp());
 
@@ -24,15 +26,27 @@ class PeopleWidget extends StatefulWidget {
 
 class _PeopleWidgetState extends State<PeopleWidget> {
 
+  PeopleApi _api = new PeopleApi();
+  List<Person> _people;
+
+  @override
+  void initState() {
+    super.initState();
+    getPessoas();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Text("Hello Flutter!",
-          style: TextStyle(
-              fontSize: 30.0,
-              color: Colors.blueAccent
-          ),
+        child: Text(
+            _people == null ? "LOADING" : "${_people}"
         )
     );
   }
+
+  void getPessoas() async {
+    _people = await _api.loadJsonFromApi();
+    setState(() {});
+  }
+
 }
