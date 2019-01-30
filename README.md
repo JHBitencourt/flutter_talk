@@ -1,5 +1,9 @@
 # Não use drogas, use Flutter!
 
+<a href="https://github.com/Solido/awesome-flutter">
+  <img alt="Awesome Flutter" src="https://img.shields.io/badge/Awesome-Flutter-blue.svg?longCache=true&style=flat-square" />
+</a>
+
 Repositório contendo o live coding do talk realizado sobre Flutter.
 
 <img src="https://raw.githubusercontent.com/JHBitencourt/flutter_talk/master/assets/app.gif" align="center">
